@@ -34,3 +34,11 @@ resource "aws_security_group" "web_firewall" {
     Name = "Cybersecurity-Lab-Firewall"
   }
 }
+
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.security_lab.id
+
+  tags = {
+    Name = "Restricted-Default-Security-Group"
+  }
+}
